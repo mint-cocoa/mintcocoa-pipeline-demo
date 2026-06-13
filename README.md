@@ -4,6 +4,7 @@
 staging-first GitOps promotion flow.
 
 - `GET /healthz` returns `ok`
+- `GET /readyz` returns `ok`
 - `GET /` returns the service name, image version, Kubernetes environment,
   hostname, and current UTC time
 

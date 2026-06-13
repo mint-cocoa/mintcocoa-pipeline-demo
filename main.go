@@ -20,10 +20,12 @@ type releaseResponse struct {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
+	healthHandler := func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("content-type", "text/plain; charset=utf-8")
 		_, _ = w.Write([]byte("ok\n"))
-	})
+	}
+	mux.HandleFunc("/healthz", healthHandler)
+	mux.HandleFunc("/readyz", healthHandler)
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		hostname, _ := os.Hostname()
 		appVersion := getenv("APP_VERSION", version)
