@@ -10,4 +10,4 @@ staging-first GitOps promotion flow.
 
 The application repository builds and pushes the container image. The
 `mintcocoa-ops` repository declares which image tag runs in staging and
-production.
+production. 
